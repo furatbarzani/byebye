@@ -35,7 +35,7 @@ client.on("error", console.error);
 
 
 client.on("message", async message => {
-  if (message.content.startsWith( prefix + 'botinfo') || message.content.startsWith( prefix + 'stats')) {
+  if (message.content.startsWith( PREFIX + 'botinfo') || message.content.startsWith( PREFIX + 'stats')) {
   
     let sts = new Discord.MessageEmbed()
       .setColor("BLACK")
