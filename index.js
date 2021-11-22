@@ -85,3 +85,15 @@ client.on("message", async (message) => {
     message.reply(i18n.__("common.errorCommand")).catch(console.error);
   }
 });
+class discordbotlists(commands.Cog):
+ def init(self, bot):
+  self.bot = bot
+  self.token = 'api-token' # botsfordiscord
+  self.token2 = 'api-token' # discord bot list
+  self.dblpy = dbl.DBLClient(self.bot, self.token2, autopost=True) ## passed in the api token of the discord bot list bot
+  self.api = discordlists.Client(self.bot) ## creates an instance of a discordlists client
+  self.api.set_auth("botsfordiscord.com", self.token) ## passed in the api token of the botsfordiscord bot
+  self.api.start_loop() ## loops every 30 mins
+
+def setup(bot):
+    bot.add_cog(discordbotlists(bot))
