@@ -28,7 +28,27 @@ client.on("ready", () => {
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
+Aha nusraya 
 
+client.on("warn", (info) => console.log(info));
+client.on("error", console.error);
+
+
+client.on("message", async message => {
+  if (message.content.startsWith( prefix + 'botinfo') || message.content.startsWith( prefix + 'stats')) {
+  
+    let sts = new Discord.MessageEmbed()
+      .setColor("BLACK")
+      .setFooter(message.author.username, message.author.AvatarURL)
+      .setTitle(client.user.username)
+      .setThumbnail(message.author.avatarURL({ dynamic: true }))
+      .addField('SERVER', `${client.guilds.cache.size}`)
+      .addField('users', `${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}`)
+      .addField('channels', `${client.channels.cache.size}`)
+      .addField('DEVELOPER', `!                           KURD#1000(828550389233090571)`)
+    message.channel.send(sts);
+  }
+});
 /**
  * Import all commands
  */
